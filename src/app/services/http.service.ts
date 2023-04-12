@@ -10,7 +10,7 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
   getStudents(): Observable<Student[]> {
-    const url = `/api/v1/students`
+    const url = `/api/students`
     return this.http.get<Student[]>(url);
 
   }

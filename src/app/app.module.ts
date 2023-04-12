@@ -1,14 +1,29 @@
-import {APP_INITIALIZER, NgModule} from '@angular/core';
+import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
+import { KeycloakAngularModule, KeycloakService} from "keycloak-angular";
+import { MatToolbarModule} from "@angular/material/toolbar";
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { MatIconModule} from "@angular/material/icon";
+import { HomeComponent } from './home/home.component';
+import { MatListModule} from "@angular/material/list";
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { MatButtonModule} from "@angular/material/button";
+import { ApplicationComponent } from './application/application.component';
+import { MatCardModule} from "@angular/material/card";
+import { MatInputModule} from "@angular/material/input";
+import { MatSelectModule} from "@angular/material/select";
+
 function initializeKeycloak(keycloak: KeycloakService) {
   return async () => {
     const authenticated = await keycloak.init({
       config:  {
-        url: 'http://localhost:8081',
+        url: 'http://localhost:8081/auth',
         realm: 'springbootapp',
         clientId: 'university'
       },
@@ -29,8 +44,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
   };
 }
 @NgModule({
-  declarations: [AppComponent],
-  imports: [AppRoutingModule, BrowserModule, KeycloakAngularModule,HttpClientModule],
+  declarations: [AppComponent, HomeComponent, AboutComponent, ContactComponent, ApplicationComponent],
+  imports: [AppRoutingModule, BrowserModule, KeycloakAngularModule, HttpClientModule, MatSidenavModule, MatSelectModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule],
   providers: [
     {
       provide: APP_INITIALIZER,
@@ -39,6 +54,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
       deps: [KeycloakService]
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }

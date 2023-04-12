@@ -1,6 +1,27 @@
-<h1>Hello</h1>
-<ul>
-  <li *ngFor="let user of students;">
-    {{user.id}}, {{user.firstName}}, {{user.lastName}}, {{user.email}}
-  </li>
-</ul>
+<!--<h1>Hellpo</h1>-->
+<!--<ul>-->
+<!--  <li *ngFor="let user of students;">-->
+<!--    {{user.id}}, {{user.first_name}}, {{user.last_name}}, {{user.email}}-->
+<!--  </li>-->
+<!--</ul>-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h4>Apply for a Master's Degree</h4>
+    <button mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon>Menu</button>
+    <button mat-button><mat-icon>home</mat-icon>Home</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-list>
+      <mat-list-item><a routerLink="/home" style="text-decoration: none;">Home</a></mat-list-item>
+      <mat-list-item><a routerLink="/application" style="text-decoration: none;">Apply</a></mat-list-item>
+      <mat-list-item><a routerLink="/about" style="text-decoration: none;">About</a></mat-list-item>
+      <mat-list-item><a routerLink="/contact" style="text-decoration: none;">Contact Us</a></mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
