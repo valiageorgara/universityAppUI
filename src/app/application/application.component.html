@@ -1,0 +1,47 @@
+<form [formGroup]="profileForm" class="form-container" style="text-align: center">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title >Fill out the application</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <mat-label>University</mat-label>
+            <mat-select>
+              <mat-option  *ngFor="let university of universities" [value]="university">{{university}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <mat-label>Department</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let department of departments" [value]="department">{{department}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <mat-label>Master</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let master of masters" [value]="master">{{master}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <mat-label>Stream</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let stream of streams" [value]="stream">{{stream}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button (click)="saveForm()" mat-raised-button color="primary">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
