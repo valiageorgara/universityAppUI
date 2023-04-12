@@ -12,12 +12,12 @@ import { MatIconModule} from "@angular/material/icon";
 import { HomeComponent } from './home/home.component';
 import { MatListModule} from "@angular/material/list";
 import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
 import { MatButtonModule} from "@angular/material/button";
 import { ApplicationComponent } from './application/application.component';
 import { MatCardModule} from "@angular/material/card";
 import { MatInputModule} from "@angular/material/input";
 import { MatSelectModule} from "@angular/material/select";
+import { ViewComponent } from './view/view.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return async () => {
@@ -44,7 +44,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
   };
 }
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AboutComponent, ContactComponent, ApplicationComponent],
+  declarations: [AppComponent, HomeComponent, AboutComponent, ApplicationComponent, ViewComponent],
   imports: [AppRoutingModule, BrowserModule, KeycloakAngularModule, HttpClientModule, MatSidenavModule, MatSelectModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule],
   providers: [
     {

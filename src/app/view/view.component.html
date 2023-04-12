@@ -1,0 +1,36 @@
+<div class="table-container">
+  <table>
+    <thead>
+    <tr>
+      <th>No</th>
+      <th>University</th>
+      <th>Department</th>
+      <th>Master</th>
+      <th>Stream Preference</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let application of applications; let i = index">
+      <td>{{i+1}}</td>
+      <td>{{application.university}}</td>
+      <td>{{application.department}}</td>
+      <td>{{application.master}}</td>
+      <td>{{application.stream}}</td>
+      <td>{{application.date}}</td>
+      <td>{{application.status}}</td>
+<!--      <td><button (click)="deleteApplication(i)">Delete</button></td>-->
+      <td>
+        <button class="action-button" (click)="deleteApplication(i)">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+

@@ -13,6 +13,8 @@ export class ApplicationComponent implements OnInit {
   masters = ["Space Technologies and Applications", "Computer Science, Telecommunications and Networking"]
   streams = ["Downstream", "Upstream", "Hardware"]
 
+  showSuccessMessage = false;
+
   constructor(
     private formBuilder: FormBuilder
   ) {
@@ -26,8 +28,16 @@ export class ApplicationComponent implements OnInit {
     stream: [''],
   });
 
-  saveForm() {
+  saveForm(event: Event) {
+    event.preventDefault(); // Disable default form submission behavior
+
     console.log('Form data is ', this.profileForm.value);
+    this.showSuccessMessage = true;
+  }
+
+  resetForm() {
+    this.profileForm.reset();
+    this.showSuccessMessage = false;
   }
 
   ngOnInit(): void {
